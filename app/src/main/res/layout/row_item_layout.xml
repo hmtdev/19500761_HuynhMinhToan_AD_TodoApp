@@ -3,23 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="15dp"
+    android:padding="10dp"
     android:background="@drawable/custom">
+
     <CheckBox
         android:id="@+id/checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:soundEffectsEnabled="true"/>
+        android:soundEffectsEnabled="true" />
+
     <TextView
         android:id="@+id/item_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="italic|bold"
         android:layout_centerVertical="true"
-        android:text="text"
-        android:textSize="25sp"
         android:layout_toEndOf="@id/checkbox"
-        android:layout_toRightOf="@+id/checkbox"/>
+        android:layout_toRightOf="@+id/checkbox"
+        android:text="text"
+        android:fontFamily="monospace"
+        android:textSize="23sp"
+        android:textStyle="bold" />
 
     <ImageButton
         android:id="@+id/close"
@@ -29,10 +32,23 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginEnd="25dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginRight="25dp"
         android:layout_marginBottom="5dp"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_baseline_delete_24" />
 
+    <TextView
+        android:id="@+id/time_textView"
+        android:layout_width="80dp"
+        android:textColor="@color/teal_700"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="14dp"
+        android:layout_toStartOf="@+id/close"
+        android:text="24/12/2021"
+        android:textSize="15sp"
+        android:textStyle="italic|bold" />
 </RelativeLayout>

@@ -27,6 +27,7 @@ class ToDoAdapter(context: Context,todoList:MutableList<ToDoModel>) : BaseAdapte
         val UID : String  = itemList.get(position).UID as String
         val itemTextData = itemList.get(position).itemDataText as String
         val done : Boolean = itemList.get(position).done as Boolean
+        val time : String = itemList.get(position).time.toString()
 
         val view : View
         val viewHolder :ListViewHolder
@@ -38,14 +39,20 @@ class ToDoAdapter(context: Context,todoList:MutableList<ToDoModel>) : BaseAdapte
             view = convertView
             viewHolder = view.tag as ListViewHolder
         }
+
         viewHolder.textLabel.text = itemTextData
         viewHolder.isDone.isChecked = done
+        viewHolder.textTime.text = time
+
         viewHolder.isDone.setOnClickListener {
             updateAndDelete.modifyItem(UID,!done)
 
         }
         viewHolder.isDeleted.setOnClickListener {
             updateAndDelete.onItemDelete( UID,)
+        }
+        viewHolder.textLabel.setOnClickListener {
+            updateAndDelete.onRepair(UID,viewHolder.textLabel.text.toString())
         }
         return view
 
@@ -54,5 +61,6 @@ class ToDoAdapter(context: Context,todoList:MutableList<ToDoModel>) : BaseAdapte
         val  textLabel : TextView = row!!.findViewById(R.id.item_textView)
         val  isDone : CheckBox = row!!.findViewById(R.id.checkbox)
         val isDeleted : ImageButton = row!!.findViewById(R.id.close) as ImageButton
+        val textTime : TextView = row!!.findViewById(R.id.time_textView)
     }
 }
